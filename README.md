@@ -9,8 +9,11 @@ brings this feature to older iOS versions, Android devices and for Windows Store
       <head>
         <title>YouTube</title>
         <meta name="author" content="Google, Inc.">
-        <meta name="apple-itunes-app" content="app-id=544007664">
-        <meta name="google-play-app" content="app-id=com.google.android.youtube">
+        <meta name="apple-itunes-app" content="app-id=[app-id]">
+				<meta name="apple-itunes-app-tab" content="app-id=[app-id]">
+				<meta name="google-play-app" content="app-id=[app-id]">
+				<meta name="google-play-app-tab" content="app-id=[app-id]">
+				<!-- TODO example for windows -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="jquery.smartbanner.css" type="text/css" media="screen">
@@ -21,7 +24,7 @@ brings this feature to older iOS versions, Android devices and for Windows Store
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <script src="jquery.smartbanner.js"></script>
         <script type="text/javascript">
-          $(function() { $.smartbanner() } )
+          $(function() { $.smartbanner({ /* options */ }) } );
         </script>
       </body>
     </html>
@@ -34,16 +37,18 @@ brings this feature to older iOS versions, Android devices and for Windows Store
       appStoreLanguage: 'us', // Language code for App Store
       inAppStore: 'On the App Store', // Text of price for iOS
       inGooglePlay: 'In Google Play', // Text of price for Android
-	  inWindowsStore: 'In the Windows Store', // Text of price for Windows
+      inWindowsStore: 'In the Windows Store', // Text of price for Windows
       icon: null, // The URL of the icon (defaults to <meta name="apple-touch-icon">)
       iconGloss: null, // Force gloss effect for iOS even for precomposed
-      button: 'VIEW', // Text for the install button
+      url: null, // The URL for the button. Keep null if you want the button to link to the app store.
+      button: 'INSTALL', // Text for the install button
       scale: 'auto', // Scale based on viewport size (set to 1 to disable)
       speedIn: 300, // Show animation speed of the banner
       speedOut: 400, // Close animation speed of the banner
-      daysHidden: 15, // Duration to hide the banner after being closed (0 = always show banner)
+      daysHidden: 15, // Duration to hide the banner after being closed (0 = always show banner, null = show banner on each browser session)
       daysReminder: 90, // Duration to hide the banner after "VIEW" is clicked *separate from when the close button is clicked* (0 = always show banner)
-      force: null // Choose 'ios', 'android' or 'windows'. Don't do a browser check, just always show this banner
+      force: null, // Choose 'ios', 'android' or 'windows'. Don't do a browser check, just always show this banner
+      container: 'body' // Container where the banner will be injected
     })
 
   [1]: http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html
