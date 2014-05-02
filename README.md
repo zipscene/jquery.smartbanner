@@ -51,4 +51,4 @@ brings this feature to older iOS versions, Android devices and for Windows Store
 			container: 'body' // Container where the banner will be injected
 		})
 
-	[1]: http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html
+[1]: http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html
