@@ -13,7 +13,10 @@ brings this feature to older iOS versions, Android devices and for Windows Store
 				<meta name="apple-itunes-app-tab" content="app-id=[app-id]">
 				<meta name="google-play-app" content="app-id=[app-id]">
 				<meta name="google-play-app-tab" content="app-id=[app-id]">
-				<!-- TODO example for windows -->
+				<meta name="msApplication-ID" content="App" />
+				<meta name="msApplication-TileImage" content="http://wscont1.apps.microsoft.com/winstore/1x/107a0080-d451-4367-bee0-ccbb49465360/Icon.102051.png" /> <!-- From the Windows RT store : http://apps.microsoft.com/windows/fr-fr/app/twitter/8289549f-9bae-4d44-9a5c-63d9c3a79f35 -->
+				<meta name="msApplication-PackageFamilyName" content="9E2F88E3.Twitter_wgeqdkkx372wm" /> <!-- Windows RT > PackageFamilyName is visible in the source page of the store : http://apps.microsoft.com/windows/fr-fr/app/twitter/8289549f-9bae-4d44-9a5c-63d9c3a79f35 -->
+				<meta name="msApplication-WinPhonePackageUrl" content="app-id=0b792c7c-14dc-df11-a844-00237de2db9e" /> <!-- Windows Phone > AppId is visible in the URL of the app in the windows phone store -->
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 				<link rel="stylesheet" href="jquery.smartbanner.css" type="text/css" media="screen">
