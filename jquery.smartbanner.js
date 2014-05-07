@@ -42,10 +42,10 @@
 
 		// Get info from meta data
 		var metaMap = {
-			'windows': 'meta[name="zs-msApplication-ID"]',
-			'windows-phone': 'meta[name="zs-msApplication-WinPhonePackageUrl"]',
-			'android': 'meta[name="zs-google-play-app"]',
-			'ios': 'meta[name="zs-apple-itunes-app"]'
+			'windows': 'meta[name="smartbanner-msApplication-ID"]',
+			'windows-phone': 'meta[name="smartbanner-msApplication-WinPhonePackageUrl"]',
+			'android': 'meta[name="smartbanner-google-play-app"]',
+			'ios': 'meta[name="smartbanner-apple-itunes-app"]'
 		};
 		var meta = $(metaMap[this.type]);
 
@@ -57,7 +57,7 @@
 
 		// For Windows Store apps, get the PackageFamilyName for protocol launch
 		if (this.type === 'windows') {
-			this.pfn = $('meta[name="msApplication-PackageFamilyName"]').attr('content');
+			this.pfn = $('meta[name="smartbanner-msApplication-PackageFamilyName"]').attr('content');
 			this.appId = meta.attr('content')[1];
 		} else if (this.type === 'windows-phone') {
 			this.appId = meta.attr('content');
@@ -65,8 +65,23 @@
 			this.appId = /app-id=([^\s,]+)/.exec(meta.attr('content'))[1];
 		}
 
-		this.title = this.options.title ? this.options.title : $('title').text().replace(/\s*[|\-·].*$/, '');
-		this.author = this.options.author ? this.options.author : ($('meta[name="author"]').length ? $('meta[name="author"]').attr('content') : window.location.hostname);
+		// Determine title
+		if (this.options.title) {
+			this.title = this.options.title;
+		} else if ($('meta[name="smartbanner-title"]').length) {
+			this.title = $('meta[name="smartbanner-title"]').attr('content');
+		} else {
+			this.title = $('title').text().replace(/\s*[|\-·].*$/, '');
+		}
+
+		// Determine author
+		if (this.options.author) {
+			this.author = this.options.author;
+		} else if ($('meta[name="smartbanner-author"]').length) {
+			this.author = $('meta[name="smartbanner-author"]').attr('content');
+		} else {
+			this.author = window.location.hostname;
+		}
 
 		// Create banner
 		this.create();
